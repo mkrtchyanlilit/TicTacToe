@@ -1,6 +1,7 @@
 const board = document.querySelector(".board");
 const cells = board.querySelectorAll(".cell");
 const statusText = document.getElementById("statusText");
+const restartBtn = document.querySelector(".container button");
 const winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -27,8 +28,10 @@ for (let cell of cells) {
 
     checkWinner();
 
-      if (running) changePlayer();
-      else restartGame();
+    if (running) changePlayer();
+    else {
+      restartBtn.addEventListener("click", restartGame);
+    }
   });
 }
 
